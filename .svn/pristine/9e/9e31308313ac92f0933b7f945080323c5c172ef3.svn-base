@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
+using Newtonsoft.Json;
+
+namespace BSApp_AmpelCommander
+{
+    public partial class frm_main : Form
+    {
+        AmpelVars vars = new AmpelVars();
+
+        public frm_main()
+        {
+            InitializeComponent();
+            bgw_sendData.RunWorkerAsync();
+        }
+
+        private void bgw_sendData_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var Client = new UdpClient(15000);
+            
+            var ServerEp = new IPEndPoint(IPAddress.Any, 15000);
+
+            while (true)
+            {
+                var RequestData = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(vars));
+                Client.EnableBroadcast = true;
+                Client.Send(RequestData, RequestData.Length, new IPEndPoint(IPAddress.Broadcast, 15000));
+
+                if (bgw_sendData.CancellationPending)
+                {
+                    Client.Close();
+                    break;
+                }
+            }
+            
+        }
+
+        private void frm_main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bgw_sendData.CancelAsync();
+        }
+    }
+}
