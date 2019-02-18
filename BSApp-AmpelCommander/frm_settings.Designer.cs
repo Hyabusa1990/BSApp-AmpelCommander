@@ -35,34 +35,34 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_abcd = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_text = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_schTim = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_vorTim = new System.Windows.Forms.Label();
-            this.tb_text = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_abcdON = new System.Windows.Forms.Button();
             this.btn_abcdOFF = new System.Windows.Forms.Button();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_text = new System.Windows.Forms.Label();
+            this.tb_text = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_schTim = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_vorTimAnz = new System.Windows.Forms.Label();
-            this.lbl_schTimAnz = new System.Windows.Forms.Label();
-            this.btn_vorTimDown = new System.Windows.Forms.Button();
             this.btn_schTimDown = new System.Windows.Forms.Button();
-            this.btn_vorTimUp = new System.Windows.Forms.Button();
+            this.lbl_schTimAnz = new System.Windows.Forms.Label();
             this.btn_schTimUp = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_vorTim = new System.Windows.Forms.Label();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_vorTimDown = new System.Windows.Forms.Button();
+            this.lbl_vorTimAnz = new System.Windows.Forms.Label();
+            this.btn_vorTimUp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_yLine)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pb_yLine
@@ -183,6 +183,52 @@
             this.lbl_abcd.Text = "AB / CD";
             this.lbl_abcd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.5F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.5F));
+            this.tableLayoutPanel7.Controls.Add(this.btn_abcdON, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btn_abcdOFF, 2, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(180, 0);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(162, 28);
+            this.tableLayoutPanel7.TabIndex = 2;
+            // 
+            // btn_abcdON
+            // 
+            this.btn_abcdON.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_abcdON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_abcdON.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_abcdON.Location = new System.Drawing.Point(0, 0);
+            this.btn_abcdON.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_abcdON.Name = "btn_abcdON";
+            this.btn_abcdON.Size = new System.Drawing.Size(76, 28);
+            this.btn_abcdON.TabIndex = 0;
+            this.btn_abcdON.Text = "AN";
+            this.btn_abcdON.UseVisualStyleBackColor = true;
+            this.btn_abcdON.Click += new System.EventHandler(this.btn_abcdON_Click);
+            // 
+            // btn_abcdOFF
+            // 
+            this.btn_abcdOFF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_abcdOFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_abcdOFF.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_abcdOFF.Location = new System.Drawing.Point(84, 0);
+            this.btn_abcdOFF.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_abcdOFF.Name = "btn_abcdOFF";
+            this.btn_abcdOFF.Size = new System.Drawing.Size(78, 28);
+            this.btn_abcdOFF.TabIndex = 1;
+            this.btn_abcdOFF.Text = "AUS";
+            this.btn_abcdOFF.UseVisualStyleBackColor = true;
+            this.btn_abcdOFF.Click += new System.EventHandler(this.btn_abcdOFF_Click);
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 5;
@@ -213,6 +259,23 @@
             this.lbl_text.TabIndex = 1;
             this.lbl_text.Text = "Lauftext";
             this.lbl_text.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tb_text
+            // 
+            this.tb_text.BackColor = System.Drawing.Color.DimGray;
+            this.tb_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_text.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tb_text.Location = new System.Drawing.Point(180, 0);
+            this.tb_text.Margin = new System.Windows.Forms.Padding(0);
+            this.tb_text.Multiline = true;
+            this.tb_text.Name = "tb_text";
+            this.tb_text.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_text.Size = new System.Drawing.Size(162, 28);
+            this.tb_text.TabIndex = 2;
+            this.tb_text.Text = "www.ampel.bsapps.de";
+            this.tb_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_text.TextChanged += new System.EventHandler(this.tb_text_TextChanged);
             // 
             // tableLayoutPanel6
             // 
@@ -245,6 +308,66 @@
             this.lbl_schTim.Text = "Schusszeit";
             this.lbl_schTim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 5;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel9.Controls.Add(this.btn_schTimDown, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.lbl_schTimAnz, 2, 0);
+            this.tableLayoutPanel9.Controls.Add(this.btn_schTimUp, 4, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(180, 0);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(162, 28);
+            this.tableLayoutPanel9.TabIndex = 3;
+            // 
+            // btn_schTimDown
+            // 
+            this.btn_schTimDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_schTimDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_schTimDown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_schTimDown.Location = new System.Drawing.Point(0, 0);
+            this.btn_schTimDown.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_schTimDown.Name = "btn_schTimDown";
+            this.btn_schTimDown.Size = new System.Drawing.Size(48, 28);
+            this.btn_schTimDown.TabIndex = 3;
+            this.btn_schTimDown.Text = "<<";
+            this.btn_schTimDown.UseVisualStyleBackColor = true;
+            this.btn_schTimDown.Click += new System.EventHandler(this.btn_schTimDown_Click);
+            // 
+            // lbl_schTimAnz
+            // 
+            this.lbl_schTimAnz.AutoSize = true;
+            this.lbl_schTimAnz.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_schTimAnz.Location = new System.Drawing.Point(59, 0);
+            this.lbl_schTimAnz.Name = "lbl_schTimAnz";
+            this.lbl_schTimAnz.Size = new System.Drawing.Size(42, 28);
+            this.lbl_schTimAnz.TabIndex = 2;
+            this.lbl_schTimAnz.Text = "240 s";
+            this.lbl_schTimAnz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_schTimUp
+            // 
+            this.btn_schTimUp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_schTimUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_schTimUp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_schTimUp.Location = new System.Drawing.Point(112, 0);
+            this.btn_schTimUp.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_schTimUp.Name = "btn_schTimUp";
+            this.btn_schTimUp.Size = new System.Drawing.Size(50, 28);
+            this.btn_schTimUp.TabIndex = 4;
+            this.btn_schTimUp.Text = ">>";
+            this.btn_schTimUp.UseVisualStyleBackColor = true;
+            this.btn_schTimUp.Click += new System.EventHandler(this.btn_schTimUp_Click);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
@@ -276,69 +399,6 @@
             this.lbl_vorTim.Text = "Vorlaufzeit";
             this.lbl_vorTim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tb_text
-            // 
-            this.tb_text.BackColor = System.Drawing.Color.DimGray;
-            this.tb_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tb_text.Location = new System.Drawing.Point(180, 0);
-            this.tb_text.Margin = new System.Windows.Forms.Padding(0);
-            this.tb_text.Multiline = true;
-            this.tb_text.Name = "tb_text";
-            this.tb_text.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_text.Size = new System.Drawing.Size(162, 28);
-            this.tb_text.TabIndex = 2;
-            this.tb_text.Text = "www.ampel.bsapps.de";
-            this.tb_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_text.TextChanged += new System.EventHandler(this.tb_text_TextChanged);
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.5F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.5F));
-            this.tableLayoutPanel7.Controls.Add(this.btn_abcdON, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btn_abcdOFF, 2, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(180, 0);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(162, 28);
-            this.tableLayoutPanel7.TabIndex = 2;
-            // 
-            // btn_abcdON
-            // 
-            this.btn_abcdON.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_abcdON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_abcdON.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_abcdON.Location = new System.Drawing.Point(0, 0);
-            this.btn_abcdON.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_abcdON.Name = "btn_abcdON";
-            this.btn_abcdON.Size = new System.Drawing.Size(76, 28);
-            this.btn_abcdON.TabIndex = 0;
-            this.btn_abcdON.Text = "AN";
-            this.btn_abcdON.UseVisualStyleBackColor = true;
-            this.btn_abcdON.Click += new System.EventHandler(this.btn_abcdON_Click);
-            // 
-            // btn_abcdOFF
-            // 
-            this.btn_abcdOFF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_abcdOFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_abcdOFF.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_abcdOFF.Location = new System.Drawing.Point(84, 0);
-            this.btn_abcdOFF.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_abcdOFF.Name = "btn_abcdOFF";
-            this.btn_abcdOFF.Size = new System.Drawing.Size(78, 28);
-            this.btn_abcdOFF.TabIndex = 1;
-            this.btn_abcdOFF.Text = "AUS";
-            this.btn_abcdOFF.UseVisualStyleBackColor = true;
-            this.btn_abcdOFF.Click += new System.EventHandler(this.btn_abcdOFF_Click);
-            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 5;
@@ -356,52 +416,9 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(162, 28);
             this.tableLayoutPanel8.TabIndex = 2;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 5;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel9.Controls.Add(this.btn_schTimDown, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.lbl_schTimAnz, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.btn_schTimUp, 4, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(180, 0);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(162, 28);
-            this.tableLayoutPanel9.TabIndex = 3;
-            // 
-            // lbl_vorTimAnz
-            // 
-            this.lbl_vorTimAnz.AutoSize = true;
-            this.lbl_vorTimAnz.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_vorTimAnz.Location = new System.Drawing.Point(59, 0);
-            this.lbl_vorTimAnz.Name = "lbl_vorTimAnz";
-            this.lbl_vorTimAnz.Size = new System.Drawing.Size(42, 28);
-            this.lbl_vorTimAnz.TabIndex = 2;
-            this.lbl_vorTimAnz.Text = "20 s";
-            this.lbl_vorTimAnz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_schTimAnz
-            // 
-            this.lbl_schTimAnz.AutoSize = true;
-            this.lbl_schTimAnz.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_schTimAnz.Location = new System.Drawing.Point(59, 0);
-            this.lbl_schTimAnz.Name = "lbl_schTimAnz";
-            this.lbl_schTimAnz.Size = new System.Drawing.Size(42, 28);
-            this.lbl_schTimAnz.TabIndex = 2;
-            this.lbl_schTimAnz.Text = "240 s";
-            this.lbl_schTimAnz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_vorTimDown
             // 
@@ -417,19 +434,16 @@
             this.btn_vorTimDown.UseVisualStyleBackColor = true;
             this.btn_vorTimDown.Click += new System.EventHandler(this.btn_vorTimDown_Click);
             // 
-            // btn_schTimDown
+            // lbl_vorTimAnz
             // 
-            this.btn_schTimDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_schTimDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_schTimDown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_schTimDown.Location = new System.Drawing.Point(0, 0);
-            this.btn_schTimDown.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_schTimDown.Name = "btn_schTimDown";
-            this.btn_schTimDown.Size = new System.Drawing.Size(48, 28);
-            this.btn_schTimDown.TabIndex = 3;
-            this.btn_schTimDown.Text = "<<";
-            this.btn_schTimDown.UseVisualStyleBackColor = true;
-            this.btn_schTimDown.Click += new System.EventHandler(this.btn_schTimDown_Click);
+            this.lbl_vorTimAnz.AutoSize = true;
+            this.lbl_vorTimAnz.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_vorTimAnz.Location = new System.Drawing.Point(59, 0);
+            this.lbl_vorTimAnz.Name = "lbl_vorTimAnz";
+            this.lbl_vorTimAnz.Size = new System.Drawing.Size(42, 28);
+            this.lbl_vorTimAnz.TabIndex = 2;
+            this.lbl_vorTimAnz.Text = "20 s";
+            this.lbl_vorTimAnz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_vorTimUp
             // 
@@ -445,20 +459,6 @@
             this.btn_vorTimUp.UseVisualStyleBackColor = true;
             this.btn_vorTimUp.Click += new System.EventHandler(this.btn_vorTimUp_Click);
             // 
-            // btn_schTimUp
-            // 
-            this.btn_schTimUp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_schTimUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_schTimUp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_schTimUp.Location = new System.Drawing.Point(112, 0);
-            this.btn_schTimUp.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_schTimUp.Name = "btn_schTimUp";
-            this.btn_schTimUp.Size = new System.Drawing.Size(50, 28);
-            this.btn_schTimUp.TabIndex = 4;
-            this.btn_schTimUp.Text = ">>";
-            this.btn_schTimUp.UseVisualStyleBackColor = true;
-            this.btn_schTimUp.Click += new System.EventHandler(this.btn_schTimUp_Click);
-            // 
             // frm_settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,6 +467,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_settings";
+            this.ShowInTaskbar = false;
             this.Text = "frm_settings";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pb_yLine)).EndInit();
@@ -475,17 +476,17 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             this.ResumeLayout(false);
 
         }

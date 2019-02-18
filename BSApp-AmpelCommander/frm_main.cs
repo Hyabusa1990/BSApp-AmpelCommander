@@ -27,7 +27,33 @@ namespace BSApp_AmpelCommander
         private int set_VorTim = 20;
         private int set_SchTim = 240;
         private bool set_ABCD = true;
-        private string set_Text = "www.ampel.bsapps.de";
+        private string set_Text = "www.ampel.bsapp.de";
+
+        public bool Set_ABCD
+        {
+            get
+            {
+                return set_ABCD;
+            }
+
+            set
+            {
+                set_ABCD = value;
+            }
+        }
+
+        public string Set_Text
+        {
+            get
+            {
+                return set_Text;
+            }
+
+            set
+            {
+                set_Text = value;
+            }
+        }
 
         public int Get_VorTim()
         {
@@ -55,8 +81,6 @@ namespace BSApp_AmpelCommander
             }
         }
 
-        public bool Set_ABCD { get => set_ABCD; set => set_ABCD = value; }
-        public string Set_Text { get => set_Text; set => set_Text = value; }
 
         public frm_main()
         {
@@ -74,7 +98,7 @@ namespace BSApp_AmpelCommander
 
         private void bgw_sendData_DoWork(object sender, DoWorkEventArgs e)
         {
-            /*var Client = new UdpClient(15000);
+            var Client = new UdpClient(15000);
             
             var ServerEp = new IPEndPoint(IPAddress.Any, 15000);
 
@@ -89,7 +113,7 @@ namespace BSApp_AmpelCommander
                     Client.Close();
                     break;
                 }
-            }*/
+            }
             
         }
 
@@ -135,11 +159,11 @@ namespace BSApp_AmpelCommander
 
         private void update_Display()
         {
-            if (!set_ABCD)
+            if (!Set_ABCD)
             {
                 btn_dispABCD.Text = "";
                 btn_abcd.Enabled = false;
-                vars.Bo_abcd = set_ABCD;
+                vars.Bo_abcd = Set_ABCD;
             }
             else
             {
@@ -365,8 +389,8 @@ namespace BSApp_AmpelCommander
             vars.Bo_time = true;
 
             buf_VorTim = set_VorTim;
-            buf_wechs = set_ABCD;
-            if (set_ABCD)
+            buf_wechs = Set_ABCD;
+            if (Set_ABCD)
             {
                 vars.Bo_abcd = Set_ABCD;
             }
@@ -428,7 +452,7 @@ namespace BSApp_AmpelCommander
             vars.Bo_time = !vars.Bo_time;
             if (!vars.Bo_time)
             {
-                vars.Str_time = set_Text;
+                vars.Str_time = Set_Text;
             }
         }
     }
