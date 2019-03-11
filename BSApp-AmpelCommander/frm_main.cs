@@ -98,19 +98,39 @@ namespace BSApp_AmpelCommander
 
         private void bgw_sendData_DoWork(object sender, DoWorkEventArgs e)
         {
-            var Client = new UdpClient(15000);
+            //var Client = new UdpClient(15000);
             
-            var ServerEp = new IPEndPoint(IPAddress.Any, 15000);
+            //var ServerEp = new IPEndPoint(IPAddress.Any, 15000);
+
+            IPAddress destAddr = IPAddress.Parse("224.1.1.1");  // Zieladresse
+
+            int destPort = Int32.Parse("15000");    // Zielport
+
+            int TTL = 1;    // Time-to-live für das Datagramm
+            Socket sock = new Socket(AddressFamily.InterNetwork,
+                                     SocketType.Dgram,
+                                     ProtocolType.Udp); // Multicast Socket
+
+            // Setze TTL
+            sock.SetSocketOption(SocketOptionLevel.IP,
+                                 SocketOptionName.MulticastTimeToLive,
+                                 TTL);
 
             while (true)
             {
                 var RequestData = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(vars));
-                Client.EnableBroadcast = true;
-                Client.Send(RequestData, RequestData.Length, new IPEndPoint(IPAddress.Broadcast, 15000));
+                //Client.EnableBroadcast = true;
+                //Client.Send(RequestData, RequestData.Length, new IPEndPoint(IPAddress.Broadcast, 15000));
+
+                IPEndPoint endPoint = new IPEndPoint(destAddr, destPort);
+
+                // Sende den kodierten Artikel als UDP-Paket
+                sock.SendTo(RequestData, 0, RequestData.Length, SocketFlags.None, endPoint);
 
                 if (bgw_sendData.CancellationPending)
                 {
-                    Client.Close();
+                    //Client.Close();
+                    sock.Close();
                     break;
                 }
             }
@@ -177,7 +197,6 @@ namespace BSApp_AmpelCommander
             {
                 btn_text.BackColor = Color.DimGray;
                 setAllFont(this.Controls);
-                vars.Str_time = "0";
             }
             else
             {
@@ -231,13 +250,14 @@ namespace BSApp_AmpelCommander
             {
                 if (buf_VorTim - 0.5 > 0)
                 {
-                    buf_VorTim = buf_VorTim - 0.5;
+                    
 
                     vars.Bo_green = false;
                     vars.Bo_red = true;
                     vars.Bo_yellow = false;
                     vars.Bo_time = true;
                     vars.Str_time = string.Format("{0:0}", (set_VorTim - buf_VorTim));
+                    buf_VorTim = buf_VorTim - 0.5;
                     if (Set_ABCD)
                     {
                         if (buf_ab)
@@ -252,16 +272,16 @@ namespace BSApp_AmpelCommander
                 }
                 else if (buf_VorTim - 0.5 == 0)
                 {
-                    buf_horn = 1;
-                    buf_VorTim = buf_VorTim - 0.5;
-                    buf_SchTim = set_SchTim - 1;
+                    
 
                     vars.Bo_green = true;
                     vars.Bo_red = false;
                     vars.Bo_yellow = false;
                     vars.Bo_time = true;
                     vars.Str_time = string.Format("{0:0}", (set_VorTim - buf_VorTim));
-
+                    buf_horn = 1;
+                    buf_VorTim = buf_VorTim - 0.5;
+                    buf_SchTim = set_SchTim - 1;
                     if (Set_ABCD)
                     {
                         if (buf_ab)
