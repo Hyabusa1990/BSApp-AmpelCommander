@@ -49,6 +49,7 @@
             this.btn_stop = new System.Windows.Forms.Button();
             this.btn_start = new System.Windows.Forms.Button();
             this.tim_schuss = new System.Windows.Forms.Timer(this.components);
+            this.bgw_updateData = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_yLine)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -352,6 +353,10 @@
             this.tim_schuss.Interval = 500;
             this.tim_schuss.Tick += new System.EventHandler(this.tim_schuss_Tick);
             // 
+            // bgw_updateData
+            // 
+            this.bgw_updateData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_updateData_DoWork);
+            // 
             // frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +405,7 @@
         private System.Windows.Forms.Button btn_stop;
         private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.Timer tim_schuss;
+        private System.ComponentModel.BackgroundWorker bgw_updateData;
     }
 }
 

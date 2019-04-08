@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Net;
+using System.Diagnostics;
 using Newtonsoft.Json;
 
 namespace BSApp_AmpelCommander
@@ -15,6 +16,7 @@ namespace BSApp_AmpelCommander
     public partial class frm_main : Form
     {
         AmpelVars vars = new AmpelVars();
+        Stopwatch sw = new Stopwatch();
 
         private double buf_VorTim = 20;
         private double buf_SchTim = 240;
@@ -86,6 +88,7 @@ namespace BSApp_AmpelCommander
         {
             InitializeComponent();
             bgw_sendData.RunWorkerAsync();
+            bgw_updateData.RunWorkerAsync();
             this.BackColor = Color.FromArgb(66, 66, 66);
             lbl_title.ForeColor = Color.FromArgb(255, 235, 59);
             pb_yLine.BackColor = Color.FromArgb(255, 235, 59);
@@ -94,6 +97,7 @@ namespace BSApp_AmpelCommander
             btn_start.BackColor = Color.FromArgb(76, 175, 80);
             btn_halt.BackColor = Color.FromArgb(255, 235, 59);
             btn_stop.BackColor = Color.FromArgb(244, 67, 54);
+            sw.Start();
         }
 
         private void bgw_sendData_DoWork(object sender, DoWorkEventArgs e)
@@ -246,156 +250,7 @@ namespace BSApp_AmpelCommander
 
         private void tim_schuss_Tick(object sender, EventArgs e)
         {
-            if (run)
-            {
-                if (buf_VorTim - 0.5 > 0)
-                {
-                    
-
-                    vars.Bo_green = false;
-                    vars.Bo_red = true;
-                    vars.Bo_yellow = false;
-                    vars.Bo_time = true;
-                    vars.Str_time = string.Format("{0:0}", (set_VorTim - buf_VorTim));
-                    buf_VorTim = buf_VorTim - 0.5;
-                    if (Set_ABCD)
-                    {
-                        if (buf_ab)
-                        {
-                            vars.Str_abcd = "A/B";
-                        }
-                        else
-                        {
-                            vars.Str_abcd = "C/D";
-                        }
-                    }
-                }
-                else if (buf_VorTim - 0.5 == 0)
-                {
-                    
-
-                    vars.Bo_green = true;
-                    vars.Bo_red = false;
-                    vars.Bo_yellow = false;
-                    vars.Bo_time = true;
-                    vars.Str_time = string.Format("{0:0}", (set_VorTim - buf_VorTim));
-                    buf_horn = 1;
-                    buf_VorTim = buf_VorTim - 0.5;
-                    buf_SchTim = set_SchTim - 1;
-                    if (Set_ABCD)
-                    {
-                        if (buf_ab)
-                        {
-                            vars.Str_abcd = "A/B";
-                        }
-                        else
-                        {
-                            vars.Str_abcd = "C/D";
-                        }
-                    }
-                }
-                else if (buf_SchTim > 30)
-                {
-                    buf_SchTim = buf_SchTim - 0.5;
-
-                    vars.Bo_green = true;
-                    vars.Bo_red = false;
-                    vars.Bo_yellow = false;
-                    vars.Bo_time = true;
-                    vars.Str_time = string.Format("{0:0}", buf_SchTim);
-                    if (Set_ABCD)
-                    {
-                        if (buf_ab)
-                        {
-                            vars.Str_abcd = "A/B";
-                        }
-                        else
-                        {
-                            vars.Str_abcd = "C/D";
-                        }
-                    }
-                }
-                else if(buf_SchTim - 0.5 > 0)
-                {
-                    buf_SchTim = buf_SchTim - 0.5;
-
-                    vars.Bo_green = false;
-                    vars.Bo_red = false;
-                    vars.Bo_yellow = true;
-                    vars.Bo_time = true;
-                    vars.Str_time = string.Format("{0:0}", buf_SchTim);
-                    if (Set_ABCD)
-                    {
-                        if (buf_ab)
-                        {
-                            vars.Str_abcd = "A/B";
-                        }
-                        else
-                        {
-                            vars.Str_abcd = "C/D";
-                        }
-                    }
-                }
-                else if (buf_SchTim - 0.5 == 0)
-                {
-                    buf_SchTim = buf_SchTim - 0.5;
-                    if (buf_wechs)
-                    {
-                        buf_horn = 2;
-                        buf_ab = !buf_ab;
-                        buf_VorTim = set_VorTim;
-                        buf_wechs = false;
-                    }
-                    else
-                    {
-                        buf_horn = 3;
-                    }
-                }
-                else if(buf_SchTim == 0)
-                {
-                    btn_start.Enabled = true;
-                    btn_stop.Enabled = false;
-                    btn_halt.Enabled = false;
-                    btn_text.Enabled = true;
-
-                    run = false;
-                    vars.Bo_green = false;
-                    vars.Bo_red = true;
-                    vars.Bo_yellow = false;
-                    vars.Bo_time = true;
-                    vars.Str_time = string.Format("{0:0}", buf_SchTim);
-                    if (Set_ABCD)
-                    {
-                        if (buf_ab)
-                        {
-                            vars.Str_abcd = "A/B";
-                        }
-                        else
-                        {
-                            vars.Str_abcd = "C/D";
-                        }
-                    }
-                }
-            }
-
-            if (buf_horn > 0)
-            {
-                buf_horn = buf_horn - 0.5;
-                vars.Bo_horn = !vars.Bo_horn;
-                if (vars.Bo_horn)
-                {
-                    lbl_time.ForeColor = Color.Red;
-                }
-                else
-                {
-                    lbl_time.ForeColor = Color.WhiteSmoke;
-                }
-            }
-            else
-            {
-                vars.Bo_horn = false;
-            }
-
+            
             update_Display();
         }
 
@@ -473,6 +328,167 @@ namespace BSApp_AmpelCommander
             if (!vars.Bo_time)
             {
                 vars.Str_time = Set_Text;
+            }
+        }
+
+        private void bgw_updateData_DoWork(object sender, DoWorkEventArgs e)
+        {
+            double tim = 0;
+            while (true)
+            {
+                sw.Stop();
+                tim += sw.ElapsedMilliseconds;
+                sw.Start();
+                if (run && tim >= 500)
+                {
+                    tim = 0;
+                    if (buf_VorTim - 0.5 > 0)
+                    {
+
+
+                        vars.Bo_green = false;
+                        vars.Bo_red = true;
+                        vars.Bo_yellow = false;
+                        vars.Bo_time = true;
+                        vars.Str_time = string.Format("{0:0}", (set_VorTim - buf_VorTim));
+                        buf_VorTim = buf_VorTim - 0.5;
+                        if (Set_ABCD)
+                        {
+                            if (buf_ab)
+                            {
+                                vars.Str_abcd = "A/B";
+                            }
+                            else
+                            {
+                                vars.Str_abcd = "C/D";
+                            }
+                        }
+                    }
+                    else if (buf_VorTim - 0.5 == 0)
+                    {
+
+
+                        vars.Bo_green = true;
+                        vars.Bo_red = false;
+                        vars.Bo_yellow = false;
+                        vars.Bo_time = true;
+                        vars.Str_time = string.Format("{0:0}", (set_VorTim - buf_VorTim));
+                        buf_horn = 1;
+                        buf_VorTim = buf_VorTim - 0.5;
+                        buf_SchTim = set_SchTim - 1;
+                        if (Set_ABCD)
+                        {
+                            if (buf_ab)
+                            {
+                                vars.Str_abcd = "A/B";
+                            }
+                            else
+                            {
+                                vars.Str_abcd = "C/D";
+                            }
+                        }
+                    }
+                    else if (buf_SchTim > 30)
+                    {
+                        buf_SchTim = buf_SchTim - 0.5;
+
+                        vars.Bo_green = true;
+                        vars.Bo_red = false;
+                        vars.Bo_yellow = false;
+                        vars.Bo_time = true;
+                        vars.Str_time = string.Format("{0:0}", buf_SchTim);
+                        if (Set_ABCD)
+                        {
+                            if (buf_ab)
+                            {
+                                vars.Str_abcd = "A/B";
+                            }
+                            else
+                            {
+                                vars.Str_abcd = "C/D";
+                            }
+                        }
+                    }
+                    else if (buf_SchTim - 0.5 > 0)
+                    {
+                        buf_SchTim = buf_SchTim - 0.5;
+
+                        vars.Bo_green = false;
+                        vars.Bo_red = false;
+                        vars.Bo_yellow = true;
+                        vars.Bo_time = true;
+                        vars.Str_time = string.Format("{0:0}", buf_SchTim);
+                        if (Set_ABCD)
+                        {
+                            if (buf_ab)
+                            {
+                                vars.Str_abcd = "A/B";
+                            }
+                            else
+                            {
+                                vars.Str_abcd = "C/D";
+                            }
+                        }
+                    }
+                    else if (buf_SchTim - 0.5 == 0)
+                    {
+                        buf_SchTim = buf_SchTim - 0.5;
+                        if (buf_wechs)
+                        {
+                            buf_horn = 2;
+                            buf_ab = !buf_ab;
+                            buf_VorTim = set_VorTim;
+                            buf_wechs = false;
+                        }
+                        else
+                        {
+                            buf_horn = 3;
+                        }
+                    }
+                    else if (buf_SchTim == 0)
+                    {
+                        btn_start.Enabled = true;
+                        btn_stop.Enabled = false;
+                        btn_halt.Enabled = false;
+                        btn_text.Enabled = true;
+
+                        run = false;
+                        vars.Bo_green = false;
+                        vars.Bo_red = true;
+                        vars.Bo_yellow = false;
+                        vars.Bo_time = true;
+                        vars.Str_time = string.Format("{0:0}", buf_SchTim);
+                        if (Set_ABCD)
+                        {
+                            if (buf_ab)
+                            {
+                                vars.Str_abcd = "A/B";
+                            }
+                            else
+                            {
+                                vars.Str_abcd = "C/D";
+                            }
+                        }
+                    }
+                }
+
+                if (buf_horn > 0)
+                {
+                    buf_horn = buf_horn - 0.5;
+                    vars.Bo_horn = !vars.Bo_horn;
+                    if (vars.Bo_horn)
+                    {
+                        lbl_time.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        lbl_time.ForeColor = Color.WhiteSmoke;
+                    }
+                }
+                else
+                {
+                    vars.Bo_horn = false;
+                }
             }
         }
     }
