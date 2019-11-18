@@ -102,7 +102,7 @@ namespace BSApp_AmpelCommander
 
         private void bgw_sendData_DoWork(object sender, DoWorkEventArgs e)
         {
-            //var Client = new UdpClient(15000);
+            /*//var Client = new UdpClient(15000);
             
             //var ServerEp = new IPEndPoint(IPAddress.Any, 15000);
 
@@ -119,11 +119,19 @@ namespace BSApp_AmpelCommander
             sock.SetSocketOption(SocketOptionLevel.IP,
                                  SocketOptionName.MulticastTimeToLive,
                                  TTL);
+            */
+
+            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            IPEndPoint iep = new IPEndPoint(IPAddress.Broadcast, 9050);
+            sock.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.Broadcast, 1);
 
             while (true)
             {
+
                 var RequestData = Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(vars));
-                //Client.EnableBroadcast = true;
+                sock.SendTo(RequestData, iep);
+
+                /*//Client.EnableBroadcast = true;
                 //Client.Send(RequestData, RequestData.Length, new IPEndPoint(IPAddress.Broadcast, 15000));
 
                 IPEndPoint endPoint = new IPEndPoint(destAddr, destPort);
@@ -137,6 +145,9 @@ namespace BSApp_AmpelCommander
                     sock.Close();
                     break;
                 }
+                */
+
+
             }
             
         }
